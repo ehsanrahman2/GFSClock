@@ -1,3 +1,1 @@
-Initial early quick readme.
-
--Kent
+## GFSClock stub repo
