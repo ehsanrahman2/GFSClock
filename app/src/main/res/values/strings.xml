@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GFS Time Clock</string>
+    <string name="btn_prescan">Scan Badge</string>
+    <string name="btn_scan">Scan</string>
+</resources>
