@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ClockInButton"
+        style="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored"
         android:text="@string/clock_in_button"
         android:layout_alignParentEnd="false"
         android:layout_alignParentTop="false"
