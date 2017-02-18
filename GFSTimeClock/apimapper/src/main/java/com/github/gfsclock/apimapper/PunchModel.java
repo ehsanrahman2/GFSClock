@@ -5,17 +5,21 @@ import java.util.Date;
 import io.realm.RealmObject;
 
 public class PunchModel extends RealmObject{
+    /*
+    "F1" = Start day
+    "F2" = Start Break
+    "F3" = Start Lunch
+    "F4" = Job Change
+    "F5" = End Day
+    "F6" = End Break
+    "F7" = End Lunch
+     */
+
     private int id;
     private String docket;
     private String jobCode; // used for job change
     private Date timeStamp;
     private String department; // used for job change
-
-    public PunchModel(int id, String docket, Date timeStamp) {
-        this.id = id;
-        this.docket = docket;
-        this.timeStamp = timeStamp;
-    }
 
     public int getId() {
         return id;
