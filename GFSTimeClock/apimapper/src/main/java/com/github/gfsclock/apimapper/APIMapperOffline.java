@@ -55,6 +55,19 @@ public class APIMapperOffline {
         return output;
     };
 
+    public static void punch(int eID, String docket, Date time) {
+        realmSetup();
+
+        realm.beginTransaction();
+        PunchModel n = realm.createObject(PunchModel.class);
+        n.setId(eID);
+        n.setDocket(docket);
+        n.setTimeStamp(time);
+        realm.commitTransaction();
+
+        realmSetdown();
+    }
+
     private static void realmSetup() {
         realm = Realm.getDefaultInstance();
     };
