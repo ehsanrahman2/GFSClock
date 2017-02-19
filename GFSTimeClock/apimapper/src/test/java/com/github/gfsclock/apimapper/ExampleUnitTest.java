@@ -1,4 +1,4 @@
-package teamgfs.github.com.apimapper;
+package com.github.gfsclock.apimapper;
 
 import org.junit.Test;
 

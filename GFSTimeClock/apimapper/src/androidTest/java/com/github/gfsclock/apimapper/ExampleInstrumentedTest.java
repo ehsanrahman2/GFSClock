@@ -1,4 +1,4 @@
-package teamgfs.github.com.apimapper;
+package com.github.gfsclock.apimapper;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("teamgfs.github.com.apimapper.test", appContext.getPackageName());
+        assertEquals("com.github.gfsclock.apimapper.test", appContext.getPackageName());
     }
 }
