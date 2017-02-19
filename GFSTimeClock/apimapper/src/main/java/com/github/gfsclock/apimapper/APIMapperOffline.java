@@ -46,7 +46,7 @@ public class APIMapperOffline {
         realmSetup();
 
         RealmQuery query = realm.where(PunchModel.class);
-        query.equalTo("id", eId);
+        query.equalTo("id", eID);
         RealmResults<PunchModel> results = query.findAll();
 
         ArrayList<PunchModel> output = new ArrayList<PunchModel>();
