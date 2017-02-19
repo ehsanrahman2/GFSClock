@@ -17,6 +17,7 @@ public class OptionsScreen extends AppCompatActivity {
     Button punchHistoryButton = (Button) findViewById(R.id.PunchHistoryButton);
     Button changeJobButton = (Button) findViewById(R.id.ChangeJobButton);
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_screen);

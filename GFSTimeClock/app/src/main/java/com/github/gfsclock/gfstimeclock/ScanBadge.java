@@ -10,10 +10,13 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import static com.github.gfsclock.gfstimeclock.R.layout.activity_options_screen;
+
 
 public class ScanBadge extends AppCompatActivity {
 
-
+    private String barcode;
+//    boolean scan = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,30 +27,35 @@ public class ScanBadge extends AppCompatActivity {
     public void scanBadge1(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.initiateScan();
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        String scanResults, scanFormat;
+
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-//                Log.d("ScanBadge", "Cancelled scan");
+                Log.d("ScanBadge", "Cancelled scan");
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-//                Log.d("ScanBadge", "Scanned");
-                scanResults = result.getContents();
-                scanFormat = result.getFormatName();
-                Toast.makeText(this, "Scanned: " + scanResults + " Format: " + scanFormat, Toast.LENGTH_LONG).show();
-
-                // call OptionsScreen activity here
-//                Intent options = new Intent(this, OptionsScreen.class);
+                Log.d("ScanBadge", "Scanned");
+                barcode = result.getContents().substring(1);
+//                scan = true;
+                Toast.makeText(this, "Scanned: " + barcode, Toast.LENGTH_LONG).show();
+//                processScan(barcode);
 //                startActivity(options, scanResults);
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
             super.onActivityResult(requestCode, resultCode, data);
+            Toast.makeText(this, "something goofed", Toast.LENGTH_LONG).show();
         }
+    }
+    public void processScan(String barcode){
+        Intent optionsScreen = new Intent(this, OptionsScreen.class);
+        optionsScreen.putExtra(barcode, barcode);
+        startActivity(optionsScreen);
     }
 
 }
