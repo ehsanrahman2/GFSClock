@@ -13,6 +13,8 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class ScanBadge extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,18 +28,21 @@ public class ScanBadge extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        String scanContents = null;
-//        String scanFormat = null;
+        String scanResults, scanFormat;
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
-                Log.d("ScanBadge", "Cancelled scan");
+//                Log.d("ScanBadge", "Cancelled scan");
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
-                Log.d("ScanBadge", "Scanned");
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-//                scanFormat = result.getFormatName();
-//                scanContents = result.toString();
+//                Log.d("ScanBadge", "Scanned");
+                scanResults = result.getContents();
+                scanFormat = result.getFormatName();
+                Toast.makeText(this, "Scanned: " + scanResults + " Format: " + scanFormat, Toast.LENGTH_LONG).show();
+
+                // call OptionsScreen activity here
+//                Intent options = new Intent(this, OptionsScreen.class);
+//                startActivity(options, scanResults);
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
