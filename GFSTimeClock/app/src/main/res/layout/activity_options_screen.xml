@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_options_screen"
     android:layout_width="match_parent"
@@ -11,13 +13,12 @@
     tools:context="com.github.gfsclock.gfstimeclock.OptionsScreen">
 
 
-
     <Button
+        android:text="@string/clock_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/ClockInButton"
         style="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored"
-        android:text="@string/clock_in_button"
         android:layout_alignParentEnd="false"
         android:layout_alignParentTop="false"
         tools:layout_alignParentTop="false"
@@ -29,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/ClockInButton"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="16dp:"
         android:id="@+id/BreakInButton" />
 
     <Button
@@ -38,7 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/BreakInButton"
         android:layout_alignEnd="@+id/BreakInButton"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="16dp"
         android:id="@+id/LunchInButton" />
 
     <Button
