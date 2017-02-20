@@ -17,7 +17,11 @@ public class APIMapperOffline {
 
     public static APIMapperOffline getInstance() {
         if(mInstance == null) {
-            mInstance = new APIMapperOffline();
+            synchronized(APIMapperOffline.class) {
+                if (mInstance == null) {
+                    mInstance = new APIMapperOffline();
+                }
+            }
         }
         return mInstance;
     }
