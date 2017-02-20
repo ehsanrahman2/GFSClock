@@ -7,6 +7,8 @@
     <string name="break_out_button">Break out</string>
     <string name="lunch_in_button">Lunch in</string>
     <string name="lunch_out_button">Lunch out</string>
-    <string name="punch_history_button">Punch history</string>
+    <string name="punch_history">Punch history</string>
     <string name="change_job_button">Change job</string>
+    <string name="dummy_history">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Pellentesque in ipsum id orci porta dapibus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.</string>
+
 </resources>

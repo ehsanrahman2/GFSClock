@@ -14,17 +14,6 @@
 
 
     <Button
-        android:text="@string/clock_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ClockInButton"
-        style="@android:style/TextAppearance.Material.Widget.Button.Borderless.Colored"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentTop="false"
-        tools:layout_alignParentTop="false"
-        android:layout_alignParentStart="false" />
-
-    <Button
         android:text="@string/break_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,23 +58,32 @@
         android:id="@+id/LunchOutButton" />
 
     <Button
-        android:text="@string/punch_history_button"
+        android:text="@string/clock_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/ClockInButton"
+        tools:layout_alignParentTop="false"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="15dp"
-        android:id="@+id/PunchHistoryButton" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:text="@string/change_job_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/ChangeJobButton"
+        android:layout_alignTop="@+id/LunchOutButton"
         android:layout_alignEnd="@+id/PunchHistoryButton"
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="146dp"
-        android:id="@+id/ChangeJobButton" />
+        android:layout_marginTop="10dp" />
+
+    <Button
+        android:text="@string/punch_history"
+        android:onClick="showPunchHistoryDialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PunchHistoryButton"
+        android:layout_marginStart="82dp"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/LunchOutButton" />
 
 
 </RelativeLayout>
