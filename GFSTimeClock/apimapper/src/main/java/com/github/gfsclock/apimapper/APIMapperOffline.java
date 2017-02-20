@@ -19,8 +19,7 @@ public class APIMapperOffline {
         realmSetup();
 
         // Query to see if initialize has already happened
-        RealmQuery query = realm.where(PunchModel.class);
-        RealmResults<PunchModel> results = query.findAll();
+        RealmResults<PunchModel> results = realm.where(PunchModel.class).findAll();
 
         // if we already have punches in the system
         // init already happened/persisted
@@ -43,19 +42,23 @@ public class APIMapperOffline {
     }
 
     public static ArrayList<PunchModel> getPunchesID(int eID) {
+        // TODO Fail on invalid id
+
         realmSetup();
 
         RealmQuery query = realm.where(PunchModel.class);
         query.equalTo("id", eID);
-        RealmResults<PunchModel> results = query.findAll();
+        RealmResults<PunchModel> results = realm.where(PunchModel.class).equalTo("id", eID).findAll();
 
-        ArrayList<PunchModel> output = new ArrayList<PunchModel>();
+        ArrayList<PunchModel> output = new ArrayList<>();
         output.addAll(realm.copyFromRealm(results));
         realmSetdown();
         return output;
-    };
+    }
 
     public static void punch(int eID, String docket, Date time) {
+        // TODO Fail on Invalid ID not already in DB
+
         realmSetup();
 
         realm.beginTransaction();
