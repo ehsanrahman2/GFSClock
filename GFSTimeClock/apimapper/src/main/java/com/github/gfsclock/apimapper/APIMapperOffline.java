@@ -10,12 +10,24 @@ import io.realm.RealmResults;
 
 
 public class APIMapperOffline {
-    private static Realm realm;
+    private static APIMapperOffline mInstance = null;
+    private Realm realm;
+
+    private APIMapperOffline() {};
+
+    public static APIMapperOffline getInstance() {
+        if(mInstance == null) {
+            mInstance = new APIMapperOffline();
+        }
+        return mInstance;
+    }
+
+
     /**
      * Initializes the database
      * @return boolean success
      */
-    public static boolean init_db() {
+    public boolean init_db() {
         realmSetup();
 
         // Query to see if initialize has already happened
@@ -41,7 +53,7 @@ public class APIMapperOffline {
 
     }
 
-    public static ArrayList<PunchModel> getPunchesID(int eID) {
+    public ArrayList<PunchModel> getPunchesID(int eID) {
         // TODO Fail on invalid id
 
         realmSetup();
@@ -56,7 +68,7 @@ public class APIMapperOffline {
         return output;
     }
 
-    public static void punch(int eID, String docket, Date time) {
+    public void punch(int eID, String docket, Date time) {
         // TODO Fail on Invalid ID not already in DB
 
         realmSetup();
@@ -71,11 +83,11 @@ public class APIMapperOffline {
         realmSetdown();
     }
 
-    private static void realmSetup() {
+    private void realmSetup() {
         realm = Realm.getDefaultInstance();
     };
 
-    private static void realmSetdown() {
+    private void realmSetdown() {
         realm.close();
     }
 }
