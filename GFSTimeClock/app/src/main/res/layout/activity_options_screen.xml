@@ -14,16 +14,6 @@
 
 
     <Button
-        android:text="@string/clock_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ClockInButton"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentTop="false"
-        tools:layout_alignParentTop="false"
-        android:layout_alignParentStart="false" />
-
-    <Button
         android:text="@string/break_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -85,6 +75,17 @@
         android:layout_marginEnd="78dp"
         android:layout_marginBottom="146dp"
         android:id="@+id/ChangeJobButton" />
+
+    <Button
+        android:text="@string/clock_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ClockInButton"
+        tools:layout_alignParentTop="false"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/LunchInButton"
+        android:layout_marginStart="260dp"
+        android:layout_marginTop="255dp" />
 
 
 </RelativeLayout>
