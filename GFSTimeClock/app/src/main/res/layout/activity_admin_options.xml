@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="username"
+        android:text="@string/user_name"
         android:ems="10"
         android:id="@+id/Username"
         android:layout_above="@+id/Password"
@@ -41,7 +41,7 @@
         android:layout_above="@+id/Password"
         android:layout_alignStart="@+id/Username"
         android:layout_marginBottom="66dp"
-        android:text="@ClockID" />
+        android:text="@string/clock_id" />
 
     <Button
         android:text="@string/save_button"

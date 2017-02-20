@@ -9,8 +9,8 @@
     <string name="lunch_out_button">Lunch out</string>
     <string name="punch_history">Punch history</string>
     <string name="change_job_button">Change job</string>
-
     <string name="save_button">Change job</string>
-
-
+    <string name="clock_id">Clock ID</string>
+    <string name="user_name">User name</string>
+    <string name="admin">admin</string>
 </resources>

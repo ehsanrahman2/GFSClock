@@ -27,6 +27,11 @@ public class ScanBadge extends AppCompatActivity {
         integrator.initiateScan();
     }
 
+    public void admin(View view){
+        Intent adminScreen = new Intent(ScanBadge.this, AdminOptions.class);
+        ScanBadge.this.startActivity(adminScreen);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
