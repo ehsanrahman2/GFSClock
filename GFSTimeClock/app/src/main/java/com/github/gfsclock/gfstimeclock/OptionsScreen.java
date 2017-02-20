@@ -2,6 +2,7 @@ package com.github.gfsclock.gfstimeclock;
 
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,7 +27,7 @@ public class OptionsScreen extends AppCompatActivity {
         setContentView(R.layout.activity_options_screen);
     }
 
-    // method called to display punch history dialog.
+    // Method called to display punch history dialog.
     // TODO call apimapper with actual api call to get punch history
     public void showPunchHistoryDialog(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(OptionsScreen.this);
@@ -43,5 +44,15 @@ public class OptionsScreen extends AppCompatActivity {
         dialog.show();
     }
 
+    public void clockIn(View view){
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("barcode");
 
+    }
+
+    // Intent to go back
+    public void backToScanBadge(){
+        Intent backToScanBadge = new Intent(OptionsScreen.this, ScanBadge.class);
+        OptionsScreen.this.startActivity(backToScanBadge);
+    }
 }
