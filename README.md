@@ -1,6 +1,3 @@
-## GFSClock Project Repo
+## Code repository for Team GFS GVSU Capstone project Winter 2017
 
-
-____
-new issues should coform to this issue template:
-`“As a <user type>, I want to <task> so that <goal>.”`
+more information is available at the [WIKI](https://github.com/TeamGFS/GFSClock/wiki)
