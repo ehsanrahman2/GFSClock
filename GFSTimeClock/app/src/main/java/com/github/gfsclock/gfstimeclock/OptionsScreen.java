@@ -34,14 +34,14 @@ public class OptionsScreen extends AppCompatActivity {
     private ArrayList<PunchModel> punches;
 
 
-    // TODO fix formating of punch history
-    // Thanh has to implement some of the model functions in the offline mapper
+
+    // TODO make formatting betterer
     public void showPunchHistoryDialog(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(OptionsScreen.this);
         builder.setTitle(getString(R.string.punch_history));
         String punchHistory = "";
         for (int i = 0; i < punches.size(); i++) {
-            punchHistory += punches +" "+ i + " ";
+            punchHistory += punches.get(i).getDocket()+ " " + punches.get(i).getTimeStamp() + "\n";
         }
         builder.setMessage(punchHistory);
         String positiveText = getString(android.R.string.ok);
@@ -85,8 +85,9 @@ public class OptionsScreen extends AppCompatActivity {
         backToScanBadge();
     }
 
-    public void jobChange(View view){
-        // TODO
+    public void changeJob(View view){
+        backToScanBadge();
+        // TODO disabled for now
     }
 
     // Intent to go back
