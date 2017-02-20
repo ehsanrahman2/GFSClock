@@ -26,8 +26,9 @@ public class ScanBadge extends AppCompatActivity {
     public void scanBadge1(View view){
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.initiateScan();
-
     }
+
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
