@@ -3,17 +3,17 @@ package com.github.gfsclock.gfstimeclock;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.github.gfsclock.apimapper.APIMapperOffline;
 import com.github.gfsclock.apimapper.PunchModel;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 public class OptionsScreen extends AppCompatActivity {
 
@@ -26,14 +26,14 @@ public class OptionsScreen extends AppCompatActivity {
         String id = intent.getStringExtra("barcode");
         employeeID =  Integer.parseInt(id.substring(id.length()-5, id.length()));
         punches = mapper.getPunchesID(employeeID);
-
+        employeeIdTextView = (TextView) findViewById(R.id.employeeIdTextView);
+        employeeIdTextView.setText(id);
     }
 
     private int employeeID = 0;
     private APIMapperOffline mapper = APIMapperOffline.getInstance();
     private ArrayList<PunchModel> punches;
-
-
+    private TextView employeeIdTextView;
 
     // TODO make formatting betterer
     public void showPunchHistoryDialog(View view){

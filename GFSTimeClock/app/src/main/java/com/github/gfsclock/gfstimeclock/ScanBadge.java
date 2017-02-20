@@ -27,7 +27,6 @@ public class ScanBadge extends AppCompatActivity {
         integrator.initiateScan();
     }
 
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
