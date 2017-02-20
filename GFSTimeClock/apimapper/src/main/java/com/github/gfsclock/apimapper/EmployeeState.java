@@ -1,4 +1,4 @@
-package teamgfs.github.com.apimapper;
+package com.github.gfsclock.apimapper;
 
 public class EmployeeState {
     private int employeeNum; // employee ids are left-padded with zeros

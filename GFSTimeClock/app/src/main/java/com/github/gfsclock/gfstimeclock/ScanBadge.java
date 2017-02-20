@@ -26,6 +26,8 @@ public class ScanBadge extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        String scanContents = null;
+//        String scanFormat = null;
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if(result != null) {
             if(result.getContents() == null) {
@@ -34,6 +36,8 @@ public class ScanBadge extends AppCompatActivity {
             } else {
                 Log.d("ScanBadge", "Scanned");
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+//                scanFormat = result.getFormatName();
+//                scanContents = result.toString();
             }
         } else {
             // This is important, otherwise the result will not be passed to the fragment
