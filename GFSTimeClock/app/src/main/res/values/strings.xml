@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">GFS Time Clock</string>
+    <string name="scan_badge">Scan badge</string>
+    <string name="clock_in_button">Clock in</string>
+    <string name="clock_out_button">Clock out</string>
+    <string name="break_in_button">Break in</string>
+    <string name="break_out_button">Break out</string>
+    <string name="lunch_in_button">Lunch in</string>
+    <string name="lunch_out_button">Lunch out</string>
+    <string name="punch_history">Punch history</string>
+    <string name="change_job_button">Change job</string>
+    <string name="save_button">Change job</string>
+    <string name="clock_id">Clock ID</string>
+    <string name="user_name">User name</string>
+    <string name="admin">admin</string>
+</resources>
