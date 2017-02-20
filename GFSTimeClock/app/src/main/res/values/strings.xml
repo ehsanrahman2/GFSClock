@@ -7,8 +7,10 @@
     <string name="break_out_button">Break out</string>
     <string name="lunch_in_button">Lunch in</string>
     <string name="lunch_out_button">Lunch out</string>
-    <string name="punch_history_button">Punch history</string>
+    <string name="punch_history">Punch history</string>
     <string name="change_job_button">Change job</string>
+
     <string name="save_button">Change job</string>
+
 
 </resources>

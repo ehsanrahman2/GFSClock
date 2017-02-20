@@ -10,17 +10,32 @@ import io.realm.RealmResults;
 
 
 public class APIMapperOffline {
-    private static Realm realm;
+    private static APIMapperOffline mInstance = null;
+    private Realm realm;
+
+    private APIMapperOffline() {};
+
+    public static APIMapperOffline getInstance() {
+        if(mInstance == null) {
+            synchronized(APIMapperOffline.class) {
+                if (mInstance == null) {
+                    mInstance = new APIMapperOffline();
+                }
+            }
+        }
+        return mInstance;
+    }
+
+
     /**
      * Initializes the database
      * @return boolean success
      */
-    public static boolean init_db() {
+    public boolean init_db() {
         realmSetup();
 
         // Query to see if initialize has already happened
-        RealmQuery query = realm.where(PunchModel.class);
-        RealmResults<PunchModel> results = query.findAll();
+        RealmResults<PunchModel> results = realm.where(PunchModel.class).findAll();
 
         // if we already have punches in the system
         // init already happened/persisted
@@ -42,20 +57,26 @@ public class APIMapperOffline {
 
     }
 
-    public static ArrayList<PunchModel> getPunchesID(int eID) {
+    public ArrayList<PunchModel> getPunchesID(int eID) {
+        // TODO Fail on invalid id
+
         realmSetup();
 
         RealmQuery query = realm.where(PunchModel.class);
         query.equalTo("id", eID);
-        RealmResults<PunchModel> results = query.findAll();
 
-        ArrayList<PunchModel> output = new ArrayList<PunchModel>();
+        RealmResults<PunchModel> results = realm.where(PunchModel.class).equalTo("id", eID).findAll();
+
+
+        ArrayList<PunchModel> output = new ArrayList<>();
         output.addAll(realm.copyFromRealm(results));
         realmSetdown();
         return output;
-    };
+    }
 
-    public static void punch(int eID, String docket, Date time) {
+    public void punch(int eID, String docket, Date time) {
+        // TODO Fail on Invalid ID not already in DB
+
         realmSetup();
 
         realm.beginTransaction();
@@ -68,11 +89,11 @@ public class APIMapperOffline {
         realmSetdown();
     }
 
-    private static void realmSetup() {
+    private void realmSetup() {
         realm = Realm.getDefaultInstance();
     };
 
-    private static void realmSetdown() {
+    private void realmSetdown() {
         realm.close();
     }
 }
