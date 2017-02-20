@@ -16,7 +16,6 @@ public class ScanBadge extends AppCompatActivity {
 
     private String barcode;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +26,6 @@ public class ScanBadge extends AppCompatActivity {
         IntentIntegrator integrator = new IntentIntegrator(this);
         integrator.initiateScan();
     }
-
 
 
     @Override
@@ -54,7 +52,7 @@ public class ScanBadge extends AppCompatActivity {
     }
     public void processScan(){
         Intent optionsScreen = new Intent(ScanBadge.this, OptionsScreen.class);
-        optionsScreen.putExtra(barcode, barcode);
+        optionsScreen.putExtra("barcode", barcode);
         ScanBadge.this.startActivity(optionsScreen);
     }
 

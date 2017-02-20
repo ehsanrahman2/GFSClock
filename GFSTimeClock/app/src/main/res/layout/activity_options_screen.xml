@@ -61,6 +61,7 @@
         android:text="@string/clock_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clockIn"
         android:id="@+id/ClockInButton"
         tools:layout_alignParentTop="false"
         android:layout_alignParentTop="true"

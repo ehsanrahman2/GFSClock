@@ -8,31 +8,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.github.gfsclock.apimapper.APIMapperOffline;
+import com.github.gfsclock.apimapper.PunchModel;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Objects;
 
 public class OptionsScreen extends AppCompatActivity {
-
-    // UI Controls
-//    Button clockInButton = (Button) findViewById(R.id.ClockInButton);
-//    Button clockOutButton = (Button) findViewById(R.id.ClockOutButton);
-//    Button breakInButton = (Button) findViewById(R.id.BreakInButton);
-//    Button breakOutButton = (Button) findViewById(R.id.BreakOutButton);
-//    Button lunchInButton = (Button) findViewById(R.id.LunchInButton);
-//    Button lunchOutButton = (Button) findViewById(R.id.LunchOutButton);
-//    Button punchHistoryButton = (Button) findViewById(R.id.PunchHistoryButton);
-//    Button changeJobButton = (Button) findViewById(R.id.ChangeJobButton);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_options_screen);
+
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("barcode");
+        employeeID =  Integer.parseInt(id.substring(id.length()-5, id.length()));
+        punches = mapper.getPunchesID(employeeID);
+
     }
 
-    // Method called to display punch history dialog.
-    // TODO call apimapper with actual api call to get punch history
+    private int employeeID = 0;
+    private APIMapperOffline mapper = APIMapperOffline.getInstance();
+    private ArrayList<PunchModel> punches;
+
+
+    // TODO fix formating of punch history
+    // Thanh has to implement some of the model functions in the offline mapper
     public void showPunchHistoryDialog(View view){
         AlertDialog.Builder builder = new AlertDialog.Builder(OptionsScreen.this);
         builder.setTitle(getString(R.string.punch_history));
-        builder.setMessage(getString(R.string.dummy_history));
+        String punchHistory = "";
+        for (int i = 0; i < punches.size(); i++) {
+            punchHistory += punches +" "+ i + " ";
+        }
+        builder.setMessage(punchHistory);
         String positiveText = getString(android.R.string.ok);
         builder.setPositiveButton(positiveText, new DialogInterface.OnClickListener() {
             @Override
@@ -45,9 +56,37 @@ public class OptionsScreen extends AppCompatActivity {
     }
 
     public void clockIn(View view){
-        Intent intent = getIntent();
-        String id = intent.getStringExtra("barcode");
+        mapper.punch(employeeID, "F1", new Date());
+        backToScanBadge();
+    }
 
+    public void breakOut(View view){
+        mapper.punch(employeeID, "F2", new Date());
+        backToScanBadge();
+    }
+
+    public void lunchOut(View view){
+        mapper.punch(employeeID, "F3", new Date());
+        backToScanBadge();
+    }
+
+    public void clockOut(View view){
+        mapper.punch(employeeID, "F5", new Date());
+        backToScanBadge();
+    }
+
+    public void breakIn(View view) {
+        mapper.punch(employeeID, "F6", new Date());
+        backToScanBadge();
+    }
+
+    public void lunchIn(View view){
+        mapper.punch(employeeID, "F7", new Date());
+        backToScanBadge();
+    }
+
+    public void jobChange(View view){
+        // TODO
     }
 
     // Intent to go back
